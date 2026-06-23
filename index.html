@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Sections 1 to 3</title>
+    <!-- 폰트 프리텐다드 고정 -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
+        /* ==============================================
+           공통 및 폰트 설정
+           ============================================== */
         @font-face {
             font-family: 'TrashHand';
-            src: url('./fonts/TrashHand.ttf') format('truetype'); 
+            src: url('TrashHand.ttf') format('truetype'); 
             font-weight: normal;
             font-style: normal;
         }
 
         @font-face {
             font-family: 'Annelies Rough Brush';
-            src: url('./fonts/AnneliesRoughBrush.ttf') format('truetype'); 
+            src: url('AnneliesRoughBrush.ttf') format('truetype'); 
             font-weight: normal;
             font-style: normal;
         }
@@ -27,12 +31,14 @@
         }
 
         body {
+            /* 캔버스 밖의 여백 배경색 */
             background-color: #f4f1eb; 
             margin: 0;
             overflow-x: hidden;
-            overflow-y: auto;
+            overflow-y: auto; /* 세로 스크롤 허용 */
         }
 
+        /* 💡 3개 섹션(1080px * 3 = 3240px) 전체 비율을 유지하는 래퍼 */
         .viewport-wrapper {
             width: 100vw;
             height: calc(100vw * (3240 / 1920)); 
@@ -40,6 +46,7 @@
             overflow: hidden;
         }
 
+        /* 1920x3240 통합 캔버스 */
         .canvas-1920 {
             position: absolute;
             top: 0;
@@ -47,17 +54,20 @@
             width: 1920px;
             height: 3240px;
             
-            background-image: url('./imgs/bg2.jpg'); 
+            /* 1, 2섹션 기본 배경 */
+            background-image: url('bg2.jpg'); 
             background-size: 1920px 1080px;
             background-repeat: repeat-y; 
             
             font-family: 'Pretendard', sans-serif;
             color: #000000;
             
+            /* 좌측 상단 기준으로 화면 비율에 맞게 축소 */
             transform-origin: top left;
             transform: scale(calc(100vw / 1920));
         }
 
+        /* 공통 섹션 박스 스타일 (1920x1080) */
         .section-box {
             position: absolute;
             left: 0;
@@ -67,9 +77,12 @@
             background-repeat: no-repeat;
         }
 
+        /* ==============================================
+           --- SECTION 1 --- 
+           ============================================== */
         .section-1-box {
             top: 0;
-            background-image: url('./imgs/bg2.jpg'); 
+            background-image: url('bg2.jpg'); 
             background-position: 0px -50px; 
             z-index: 1;
         }
@@ -145,9 +158,13 @@
         }
         .footer-copyright .bottom-line { display: flex; justify-content: space-between; margin-top: 15px; }
 
+
+        /* ==============================================
+           --- SECTION 2 --- 
+           ============================================== */
         .section-2-box {
             top: 1080px; 
-            background-image: url('./imgs/bg1.png'); 
+            background-image: url('bg1.png'); 
             background-position: center; 
             z-index: 2; 
         }
@@ -186,19 +203,24 @@
             font-size: 21px; font-weight: 700;
         }
 
+
+        /* ==============================================
+           --- SECTION 3 (Contents / LP) --- 
+           ============================================== */
         .section-3-box {
-            top: 2160px; 
-            background-image: url('./imgs/bg-paper.jpg'); 
+            top: 2160px; /* 1, 2섹션 아래에 배치 */
+            background-image: url('bg-paper.jpg'); 
             background-color: #faf9f6; 
             z-index: 3;
             overflow: hidden;
         }
 
+        /* 3섹션 상단 찢어진 종이 질감 */
         .top-torn-paper {
             position: absolute;
-            top: -5px; 
+            top: -5px; /* 경계선을 부드럽게 덮기 위해 살짝 위로 올림 */
             left: 0;
-            width: 1920px; 
+            width: 1920px; /* 섹션 넓이에 맞춤 */
             z-index: 50; 
             pointer-events: none; 
         }
@@ -251,6 +273,7 @@
         .project-label { position: absolute; left: 860px; top: 450px; font-size: 22px; font-weight: 600; color: #933133; }
         .list-container { position: absolute; left: 860px; top: 510px; display: flex; flex-direction: column; gap: 45px; z-index: 5; }
         
+        /* 💡 수정된 부분: a 태그일 때 밑줄 안생기고 기본색 유지되도록 설정 */
         .list-item { 
             position: relative; display: flex; align-items: center; z-index: 1; 
             cursor: pointer; text-decoration: none; color: inherit; 
@@ -262,6 +285,7 @@
         }
         .list-item:hover::before { opacity: 1; }
         
+        /* 이전 요청사항 반영: 우측 리스트 숫자 크기 22px */
         .item-num { font-size: 22px; font-weight: 700; width: 45px; letter-spacing: -0.5px;}
         .item-thumb { width: 90px; height: 90px; background-color: #e0e0e0; border-radius: 14px; object-fit: cover; }
         .item-text { margin-left: 35px; display: flex; flex-direction: column; }
@@ -273,9 +297,13 @@
 </head>
 <body>
 
+    <!-- 브라우저 비율 축소 래퍼 (스크롤 지원) -->
     <div class="viewport-wrapper">
         <div class="canvas-1920">
 
+            <!-- ==============================
+                 SECTION 1 
+                 ============================== -->
             <div class="section-box section-1-box">
                 <div class="main-title">PORTFOLIO</div>
 
@@ -313,9 +341,12 @@
                 </div>
             </div>
             
+            <!-- ==============================
+                 SECTION 2 
+                 ============================== -->
             <div class="section-box section-2-box">
                 
-                <img src="./imgs/pro.png" alt="Profile Image" class="profile-graphic">
+                <img src="pro.png" alt="Profile Image" class="profile-graphic">
 
                 <div class="intro-text">
                     클래식한 본질 위에<br>
@@ -375,10 +406,14 @@
                 </div>
             </div>
 
+            <!-- ==============================
+                 SECTION 3 (Contents)
+                 ============================== -->
             <div class="section-box section-3-box">
 
+                <!-- 💡 상단 찢어진 종이 이미지 영역 -->
                 <div class="top-torn-paper">
-                    <img src="./imgs/paper.png" alt="종이">
+                    <img src="paper.png" alt="종이">
                 </div>
                 
                 <div class="lp-graphic-container">
@@ -388,7 +423,7 @@
                     </svg>
 
                     <div class="lp-marker"></div>
-                    <img src="./imgs/withmelp.png" alt="LP Record" class="lp-vinyl-img">
+                    <img src="withmelp.png" alt="LP Record" class="lp-vinyl-img">
                 </div>
                 
                 <div class="lp-text">
@@ -401,36 +436,37 @@
                 
                 <div class="list-container">
                     
-                    <a href="./PDF/withme.pdf" target="_blank" class="list-item" data-lp-img="./imgs/withmelp.png">
+                    <!-- 💡 수정된 부분: 모든 경로(./imgs, ./PDF 등) 제거됨 -->
+                    <a href="withme.pdf" target="_blank" class="list-item" data-lp-img="withmelp.png">
                         <div class="item-num">01</div>
-                        <img src="./imgs/whithme1.jpg" alt="With ME" class="item-thumb">
+                        <img src="whithme1.jpg" alt="With ME" class="item-thumb">
                         <div class="item-text">
                             <div class="item-category">BRANDING</div>
                             <div class="item-name">With Me</div>
                         </div>
                     </a>
 
-                    <a href="./PDF/gran.pdf" target="_blank" class="list-item" data-lp-img="./imgs/3selp-Photoroom.png">
+                    <a href="gran.pdf" target="_blank" class="list-item" data-lp-img="3selp-Photoroom.png">
                         <div class="item-num">02</div>
-                        <img src="./imgs/granhand2.png" alt="GRANHAND" class="item-thumb">
+                        <img src="granhand2.png" alt="GRANHAND" class="item-thumb">
                         <div class="item-text">
                             <div class="item-category">REDESIGN</div>
                             <div class="item-name">GRANHAND</div>
                         </div>
                     </a>
 
-                    <a href="./PDF/peak.pdf" target="_blank" class="list-item" data-lp-img="./imgs/peaklp.png">
+                    <a href="peak.pdf" target="_blank" class="list-item" data-lp-img="peaklp.png">
                         <div class="item-num">03</div>
-                        <img src="./imgs/peakup.png" alt="PICK UP" class="item-thumb">
+                        <img src="peakup.png" alt="PICK UP" class="item-thumb">
                         <div class="item-text">
                             <div class="item-category">UI/UX BRANDING</div>
                             <div class="item-name">PICK UP</div>
                         </div>
                     </a>
                     
-                    <a href="./PDF/product.pdf" target="_blank" class="list-item" data-lp-img="./imgs/3se2-Photoroom.png" data-lp-name="Lumière<br>Douce">
+                    <a href="product.pdf" target="_blank" class="list-item" data-lp-img="3se2-Photoroom.png" data-lp-name="Lumière<br>Douce">
                         <div class="item-num">04</div>
-                        <img src="./imgs/prod.png" alt="Lumière Douce" class="item-thumb">
+                        <img src="prod.png" alt="Lumière Douce" class="item-thumb">
                         <div class="item-text">
                             <div class="item-category">Product Detail Page</div>
                             <div class="item-name">Lumière Douce</div>
@@ -444,6 +480,7 @@
         </div>
     </div>
 
+    <!-- 3섹션 LP판 인터랙션 스크립트 -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const listItems = document.querySelectorAll('.section-3-box .list-item');
